@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Traits app</h1>
+  <p class="lead">Web app for trait to ontology mapping built with Django.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'trait_list' %}"
+    role="button">View All traits</a>
+  </p>
+</div>
+{% endblock content %}

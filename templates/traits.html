@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Traits{% endblock title %}
+
+{% block content %}
+  <h1>Django Web App for Trait-to-Ontology Mapping</h1>
+  <hr>
+
+  <h2>Traits</h2>
+
+  {% for trait in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <a href="{% url 'trait_detail' trait.pk %}"><i class="fa fa-file"></i> </a><span class="font-weight-bold">{{ trait.title }}</span>  &middot;
+        <br>
+        <span class="text-muted"><span class="fa fa-user"></span> {{ trait.curator }} &nbsp;|&nbsp;
+         <i class="fa fa-calendar"></i> {{ trait.date_created }}</span>
+      </div>
+      {% ifequal trait.curator user %} 
+        <div class="card-body">
+          <a href="{% url 'trait_edit' trait.pk %}"><i class="fa fa-pencil"></i> </a>  &nbsp;|&nbsp;
+          <a href="{% url 'trait_delete' trait.pk %}"><i class="fa fa-trash"></i></a>
+        </div>
+      {% endifequal %}
+    </div>
+    <br />
+
+    
+  {% endfor %}
+
+  {% if is_paginated %}
+    <nav aria-label="Page navigation conatiner"></nav>
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+      {% endif %}
+    </ul>
+    </nav>
+  {% endif %}
+  
+{% endblock content %}
+
