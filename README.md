@@ -11,8 +11,8 @@ And additional requirements are in **Pipfile**.
   * Download and install Python 3.7
   * Download and install Git.
   * Fork the Repository.
-  * Clone the repository to your local machine `$ git clone https://github.com/<your-github-username>/newspaper-app.git`
-  * Change directory to newspaper-app `$ cd newspaper-app`
+  * Clone the repository to your local machine `$ git clone https://github.com/<your-github-username>/prototype.git`
+  * Change directory to prototype `$ cd prototype`
   * Install pipenv `$ pip3 install pipenv`  
   * Create a virtual environment and install all requirements from Pipfile `$ pipenv install`  
   * Activate the env: `$ pipenv shell`
